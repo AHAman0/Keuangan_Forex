@@ -10,4 +10,5 @@ class Controller extends CI_Controller {
         $this->load->view('Main/Body');
         $this->load->view('Main/Footer');
     }
+    
 }
