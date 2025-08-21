@@ -7,11 +7,13 @@
         <!-- Styling Outline CSS, Did not require internet to style -->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+        <!-- Includes Bootstrap JS and Popper.js for dropdowns and responsive navbar -->
+        <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">AHAJAWA</a>
+                <a class="navbar-brand" href="<?php echo base_url('Controller/index'); ?>">AHAJAWA</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -24,7 +26,7 @@
                             <a class="nav-link" href="#">Your Forex</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">ChangeLogs</a>
+                            <a class="nav-link" href="<?php echo base_url('Controller/Changelogs'); ?>">ChangeLogs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Feedback</a>
@@ -38,16 +40,23 @@
                     <ul class="nav nav-pills">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
+                                Your Account
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('Controller/Login'); ?>">Log-in</a></li>
+                                <li><a class="dropdown-item" href="#">Sign-Out</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#scrollspyHeading2">Second</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Settings
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Language</a></li>
+                                <li><a class="dropdown-item" href="#">Themes</a></li>
+                                <li><a class="dropdown-item" href="#">Customization</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
