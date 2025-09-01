@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">About Me</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo base_url('Controller/Aboutme'); ?>">About Me</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Your Forex</a>
@@ -44,7 +44,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?php echo base_url('Controller/Login'); ?>">Log-in</a></li>
-                                <li><a class="dropdown-item" href="#">Sign-Out</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('Controller/Signup'); ?>">Sign-up</a></li>
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                             </ul>
                         </li>

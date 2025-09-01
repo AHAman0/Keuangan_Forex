@@ -9,6 +9,7 @@ class Controller extends CI_Controller {
     }
 
     public function index($id = null) {
+        // load the database from Database.php (Config folder) that came from mySQL database!
         $this->load->database();
         // Important to remember to Load the URL Helper for the base_url() function to work
         $this->load->helper('url');
@@ -67,6 +68,13 @@ class Controller extends CI_Controller {
         $this->load->view('Changelogs', $data);
         $this->load->view('Main/Footer');
     }
+    public function Aboutme() {
+        $this->load->helper('url');
+        
+        $this->load->view('Main/index');
+        $this->load->view('Aboutme');
+        $this->load->view('Main/Footer');
+    }
 
     // Important to remember to create file .htaccess for freedom from index.php
     public function Login() {
@@ -103,6 +111,39 @@ class Controller extends CI_Controller {
         // If no put index to the view then Head is no there and that means, no bootstrap and popper.js loaded
         $this->load->view('Main/index');
         $this->load->view('Login');
+        $this->load->view('Main/Footer');
+    }
+    
+    public function Signup() {
+        $this->load->helper('url');
+        $this->load->library('form_Validation');
+
+        $this->load->helper(array('url', 'form'));
+        if ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $this->form_validation->set_rules('username', 'username', 'required');
+            $this->form_validation->set_rules('nama', 'nama', 'required');
+            $this->form_validation->set_rules('password', 'password', 'required|min_length[6]');
+
+            if ($this->form_validation->run() === TRUE) {
+                $data = array(
+                'username' => $this->input->post('username'),
+                'nama'     => $this->input->post('nama'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
+                );
+
+                $this->load->model('Models');
+                $this->Models->ADD_Account($data);
+                redirect('Controller/login');
+
+                } else {
+                $this->load->view('Main/index');
+                $this->load->view('Signup');
+            }
+        } else {
+          $this->load->view('Main/index');
+          $this->load->view('Signup');
+        }
+        
         $this->load->view('Main/Footer');
     }
 }
