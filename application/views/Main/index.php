@@ -29,7 +29,7 @@
                             <a class="nav-link" href="<?php echo base_url('Controller/Changelogs'); ?>">ChangeLogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Feedback</a>
+                            <a class="nav-link" href="<?php echo base_url('Controller/Feedback'); ?>">Feedback</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact-Me</a>
@@ -45,7 +45,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?php echo base_url('Controller/Login'); ?>">Log-in</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('Controller/Signup'); ?>">Sign-up</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('Controller/Profile'); ?>">Profile</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

@@ -15,9 +15,9 @@ class Controller extends CI_Controller {
         $this->load->helper('url');
 
         if ($id !== null) {
-            $data['account'] = $this->ModelTable->getID($id);
+            $data['account'] = $this->Models->getID($id);
         } else if ($this->session->userdata('user_id')) {
-            $data['account'] = $this->ModelTable->getID($this->session->userdata('user_id'));
+            $data['account'] = $this->Models->getID($this->session->userdata('user_id'));
         } else {
             $data['account'] = null;
         }
@@ -105,6 +105,7 @@ class Controller extends CI_Controller {
                 } else {
                     $data['error'] = 'Invalid username or password';
                 }
+                // bug needed to be fixed
             }
         }
         // If want to use the same layout as frontpage use this
@@ -144,6 +145,28 @@ class Controller extends CI_Controller {
           $this->load->view('Signup');
         }
         
+        $this->load->view('Main/Footer');
+    }
+
+    public function Profile() {
+        $this->load->helper('url');
+
+        $username = $this->session->userdata('username');
+        $account = null;
+        if ($username) {
+            $account = $this->Models->GetByUsername($username);
+        }
+        
+        $this->load->view('Main/index');
+        $this->load->view('Settings/UserProfile', ['account' => $account]);
+        $this->load->view('Main/Footer');
+    }
+
+    public function Feedback() {
+        $this->load->helper('url');
+
+        $this->load->view('Main/index');
+        $this->load->view('Feedback');
         $this->load->view('Main/Footer');
     }
 }
